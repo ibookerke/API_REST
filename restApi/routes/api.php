@@ -25,4 +25,6 @@ Route::get('country/{id}', [CountryController::class, 'countryById']);
 
 Route::post('country', [CountryController::class, 'countryAdd']);
 
+Route::put('country/{country}', [CountryController::class, 'countryEdit']);
+
 
