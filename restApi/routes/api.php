@@ -27,4 +27,6 @@ Route::post('country', [CountryController::class, 'countryAdd']);
 
 Route::put('country/{country}', [CountryController::class, 'countryEdit']);
 
+Route::delete('country/{country}', [CountryController::class, 'countryDelete']);
+
 
