@@ -57,6 +57,7 @@ class CountryController extends Controller
         $country->update($req->all());
         return response()->json($country, 200);
     }
+
     public function countryDelete($id) {
         $country = CountryModel::find($id);
         if(is_null($country)){
@@ -66,6 +67,5 @@ class CountryController extends Controller
         $country->delete();
         return response()->json('', 200);
     }
-
 
 }
