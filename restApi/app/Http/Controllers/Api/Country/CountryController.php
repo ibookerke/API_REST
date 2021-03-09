@@ -1,20 +1,35 @@
 <?php
 
-namespace App\Http\Controllers\Country;
+namespace App\Http\Controllers\Api\Country;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Api\Controller;
 use Illuminate\Http\Request;
 use App\Models\CountryModel;
 use Illuminate\Support\Facades\Validator;
 
 
-class CountryController extends Controller
-{
+class CountryController extends Controller{
+
     public function country() {
+        //auth check
+        try{
+            $user = auth()->userOrFail();
+        }catch (\Tymon\JWTAuth\Exceptions\UserNotDefinedException $e) {
+            return response()->json(['error' => true, 'message' => $e->getMessage()], 401);
+        }
+        //returning all data
         return response()->json(countryModel::get(), 200);
     }
 
     public function countryById($id){
+        //auth check
+        try{
+            $user = auth()->userOrFail();
+        }catch (\Tymon\JWTAuth\Exceptions\UserNotDefinedException $e) {
+            return response()->json(['error' => true, 'message' => $e->getMessage()], 401);
+        }
+
+        //check if id exists
         $country = CountryModel::find($id);
         if(is_null($country)){
             return response()->json(['error'=> true, 'message' => 'Not found'], 404);
@@ -24,6 +39,13 @@ class CountryController extends Controller
     }
 
     public function countryAdd(Request $req) {
+        //auth check
+        try{
+            $user = auth()->userOrFail();
+        }catch (\Tymon\JWTAuth\Exceptions\UserNotDefinedException $e) {
+            return response()->json(['error' => true, 'message' => $e->getMessage()], 401);
+        }
+        //prompt validation
         $rules = [
             'alias' => 'required|min:2|max:2',
             'name' => 'required|min:3',
@@ -39,6 +61,14 @@ class CountryController extends Controller
     }
 
     public function countryEdit(Request $req, $id) {
+        //auth check
+        try{
+            $user = auth()->userOrFail();
+        }catch (\Tymon\JWTAuth\Exceptions\UserNotDefinedException $e) {
+            return response()->json(['error' => true, 'message' => $e->getMessage()], 401);
+        }
+
+        //prompt validation
         $rules = [
             'alias' => 'required|min:2|max:2',
             'name' => 'required|min:3',
@@ -49,6 +79,7 @@ class CountryController extends Controller
             return response()->json($validator->errors(), 400);
         }
 
+        //check if id exists
         $country = CountryModel::find($id);
         if(is_null($country)){
             return response()->json(['error'=> true, 'message' => 'Not found'], 404);
@@ -59,6 +90,14 @@ class CountryController extends Controller
     }
 
     public function countryDelete($id) {
+        //auth check
+        try{
+            $user = auth()->userOrFail();
+        }catch (\Tymon\JWTAuth\Exceptions\UserNotDefinedException $e) {
+            return response()->json(['error' => true, 'message' => $e->getMessage()], 401);
+        }
+
+        //check if id exists
         $country = CountryModel::find($id);
         if(is_null($country)){
             return response()->json(['error'=> true, 'message' => 'Not found'], 404);
@@ -69,3 +108,4 @@ class CountryController extends Controller
     }
 
 }
+

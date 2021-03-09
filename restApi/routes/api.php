@@ -19,14 +19,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('country', [CountryController::class, 'country']);
+Route::get('country', [\App\Http\Controllers\Api\Country\CountryController::class, 'country']);
 
-Route::get('country/{id}', [CountryController::class, 'countryById']);
+Route::get('country/{id}', [\App\Http\Controllers\Api\Country\CountryController::class, 'countryById']);
 
-Route::post('country', [CountryController::class, 'countryAdd']);
+Route::post('country', [\App\Http\Controllers\Api\Country\CountryController::class, 'countryAdd']);
 
-Route::put('country/{id}', [CountryController::class, 'countryEdit']);
+Route::put('country/{id}', [\App\Http\Controllers\Api\Country\CountryController::class, 'countryEdit']);
 
-Route::delete('country/{id}', [CountryController::class, 'countryDelete']);
+Route::delete('country/{id}', [\App\Http\Controllers\Api\Country\CountryController::class, 'countryDelete']);
 
-
+Route::post('login', [\App\Http\Controllers\Api\Auth\LoginController::class, 'login']);
