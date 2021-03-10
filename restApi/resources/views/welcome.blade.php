@@ -33,15 +33,10 @@
             @endif
 
             @auth
+
                 <div id="app" class="ui_body">
-                    <example-component></example-component>
-                    <ui-content></ui-content>
-                    <h1>fd</h1>
-                    <h1>fd</h1>
-                    <h1>fd</h1>
-                    <h1>fd</h1>
-                    <h1>fd</h1>
-                    <h1>fd</h1>
+                    <headervue></headervue>
+                    <router-view></router-view>
                 </div>
             @else
                 <h1>In order to access the User Interface you should be authorised</h1>

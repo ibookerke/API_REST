@@ -10008,4 +10008,5 @@ body {
 
 .ui_body {
   padding-top: 200px;
+  min-width: 600px;
 }
