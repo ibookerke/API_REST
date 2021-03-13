@@ -1900,9 +1900,49 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/index.vue?vue&type=script&lang=js& ***!
   \*******************************************************************************************************************************************************************************************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\OpenServer\\domains\\restfulAPI\\restApi\\resources\\js\\views\\index.vue: Unexpected token (12:4)\n\n\u001b[0m \u001b[90m 10 |\u001b[39m     headers\u001b[33m:\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 11 |\u001b[39m         \u001b[33mAuthorization\u001b[39m\u001b[33m:\u001b[39m \u001b[32m\"Bearer \"\u001b[39m \u001b[33m+\u001b[39m \u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 12 |\u001b[39m     }\u001b[0m\n\u001b[0m \u001b[90m    |\u001b[39m     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 13 |\u001b[39m }\u001b[0m\n\u001b[0m \u001b[90m 14 |\u001b[39m \u001b[36mexport\u001b[39m \u001b[36mdefault\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 15 |\u001b[39m     name\u001b[33m:\u001b[39m \u001b[32m\"index\"\u001b[39m\u001b[33m,\u001b[39m\u001b[0m\n    at Parser._raise (C:\\OpenServer\\domains\\restfulAPI\\restApi\\node_modules\\@babel\\parser\\lib\\index.js:776:17)\n    at Parser.raiseWithData (C:\\OpenServer\\domains\\restfulAPI\\restApi\\node_modules\\@babel\\parser\\lib\\index.js:769:17)\n    at Parser.raise (C:\\OpenServer\\domains\\restfulAPI\\restApi\\node_modules\\@babel\\parser\\lib\\index.js:737:17)\n    at Parser.unexpected (C:\\OpenServer\\domains\\restfulAPI\\restApi\\node_modules\\@babel\\parser\\lib\\index.js:9686:16)\n    at Parser.parseExprAtom (C:\\OpenServer\\domains\\restfulAPI\\restApi\\node_modules\\@babel\\parser\\lib\\index.js:11078:20)\n    at Parser.parseExprSubscripts (C:\\OpenServer\\domains\\restfulAPI\\restApi\\node_modules\\@babel\\parser\\lib\\index.js:10655:23)\n    at Parser.parseUpdate (C:\\OpenServer\\domains\\restfulAPI\\restApi\\node_modules\\@babel\\parser\\lib\\index.js:10635:21)\n    at Parser.parseMaybeUnary (C:\\OpenServer\\domains\\restfulAPI\\restApi\\node_modules\\@babel\\parser\\lib\\index.js:10613:23)\n    at Parser.parseExprOpBaseRightExpr (C:\\OpenServer\\domains\\restfulAPI\\restApi\\node_modules\\@babel\\parser\\lib\\index.js:10565:34)\n    at Parser.parseExprOpRightExpr (C:\\OpenServer\\domains\\restfulAPI\\restApi\\node_modules\\@babel\\parser\\lib\\index.js:10558:21)\n    at Parser.parseExprOp (C:\\OpenServer\\domains\\restfulAPI\\restApi\\node_modules\\@babel\\parser\\lib\\index.js:10524:27)\n    at Parser.parseExprOps (C:\\OpenServer\\domains\\restfulAPI\\restApi\\node_modules\\@babel\\parser\\lib\\index.js:10480:17)\n    at Parser.parseMaybeConditional (C:\\OpenServer\\domains\\restfulAPI\\restApi\\node_modules\\@babel\\parser\\lib\\index.js:10448:23)\n    at Parser.parseMaybeAssign (C:\\OpenServer\\domains\\restfulAPI\\restApi\\node_modules\\@babel\\parser\\lib\\index.js:10411:21)\n    at C:\\OpenServer\\domains\\restfulAPI\\restApi\\node_modules\\@babel\\parser\\lib\\index.js:10378:39\n    at Parser.allowInAnd (C:\\OpenServer\\domains\\restfulAPI\\restApi\\node_modules\\@babel\\parser\\lib\\index.js:12051:12)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "authHeader": () => (/* binding */ authHeader),
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+//
+//
+//
+//
+//
+//
+function authHeader() {
+  // return authorization header with jwt token
+  var user = JSON.parse(localStorage.getItem('user'));
+
+  if (user && user.token) {
+    return {
+      'Authorization': 'Bearer ' + user.token
+    };
+  } else {
+    return {};
+  }
+}
+
+var axConfig = {
+  headers: {}
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: "index",
+  created: function created() {},
+  mounted: function mounted() {
+    var token = authHeader();
+    console.log(token);
+    axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://127.0.0.1:8000/api/country").then(function (response) {
+      return console.log(response);
+    });
+  }
+});
 
 /***/ }),
 
@@ -6484,7 +6524,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.header-nav[data-v-96f0b4c4]{\n    display: flex;\n    justify-content: space-around;\n}\n.header-li[data-v-96f0b4c4]{\n    list-style-type: none;\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.header-nav[data-v-96f0b4c4]{\r\n    display: flex;\r\n    justify-content: space-around;\n}\n.header-li[data-v-96f0b4c4]{\r\n    list-style-type: none;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -37907,6 +37947,7 @@ component.options.__file = "resources/js/views/edit.vue"
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "authHeader": () => (/* reexport safe */ _index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.authHeader),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _index_vue_vue_type_template_id_5c49133a_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index.vue?vue&type=template&id=5c49133a&scoped=true& */ "./resources/js/views/index.vue?vue&type=template&id=5c49133a&scoped=true&");
@@ -37978,7 +38019,8 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "authHeader": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.authHeader)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./index.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/views/index.vue?vue&type=script&lang=js&");
  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_index_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 

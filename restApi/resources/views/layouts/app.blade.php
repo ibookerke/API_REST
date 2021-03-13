@@ -10,7 +10,10 @@
     <title>Home</title>
 
     <!-- Scripts -->
+
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery-1.11.1.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,6 +21,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -75,9 +79,39 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4" id="baba">
             @yield('content')
         </main>
     </div>
+    <script>
+
+        $(document).ready(function() {
+            $("#loginButton").click( function() {
+                let email = document.getElementById("email").value
+                let pwd = document.getElementById("password").value
+                let request = {
+                    "email" : email,
+                    "password": pwd
+                }
+                console.log(request)
+                $.ajax({
+                    method: 'post',
+                    async: false,
+                    url: "http://127.0.0.1:8000/api/login",
+                    data: {
+                        data: request
+                    },
+                    success: function (data) {
+                        console.log("ajaxresult")
+                        console.log(data)
+                    },
+                    error: function (response) {
+                        console.log(response);
+                    }
+                })
+            })
+        })
+
+    </script>
 </body>
 </html>

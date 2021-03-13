@@ -5,10 +5,21 @@
 </template>
 
 <script>
+export function authHeader() {
+    // return authorization header with jwt token
+    let user = JSON.parse(localStorage.getItem('user'));
+
+    if (user && user.token) {
+        return { 'Authorization': 'Bearer ' + user.token };
+    } else {
+        return {};
+    }
+}
+
 import axios from "axios"
 const axConfig = {
     headers: {
-        Authorization: "Bearer " +
+
     }
 }
 export default {
@@ -17,6 +28,8 @@ export default {
 
     },
     mounted() {
+        let token = authHeader()
+        console.log(token)
         axios.get("http://127.0.0.1:8000/api/country")
             .then(response => console.log(response))
     }
