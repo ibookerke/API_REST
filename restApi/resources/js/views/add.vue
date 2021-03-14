@@ -54,6 +54,9 @@ export default {
             axios.post("http://127.0.0.1:8000/api/country/", request, axConfig)
                 .then(response => {
                     alert("Record have been successfully added")
+                    name.value = ""
+                    name_en.value = ""
+                    alias.value = ""
                 })
                 .catch(error => {
                     alert("Unacceptable values were inserted")
