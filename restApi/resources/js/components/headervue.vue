@@ -25,6 +25,10 @@ export default {
                 {
                     title: "Search",
                     href: "/edit"
+                },
+                {
+                    title: "Add Record",
+                    href: "/add"
                 }
             ]
         }

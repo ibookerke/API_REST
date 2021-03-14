@@ -5,6 +5,7 @@ Vue.use(vueRouter)
 
 import index from "./views/index";
 import edit from "./views/edit";
+import add from "./views/add"
 
 const routes = [
     {
@@ -14,6 +15,10 @@ const routes = [
     {
         path: '/edit',
         component: edit
+    },
+    {
+        path: '/add',
+        component: add
     }
 ]
 

@@ -38,6 +38,18 @@ class CountryController extends Controller{
         return response()->json( $country, 200);
     }
 
+    public function getPageNumber() {
+        //auth check
+        try{
+            $user = auth()->userOrFail();
+        }catch (\Tymon\JWTAuth\Exceptions\UserNotDefinedException $e) {
+            return response()->json(['error' => true, 'message' => $e->getMessage()], 401);
+        }
+        $pageNum = CountryModel::count() / 20;
+        $pageNum = ceil($pageNum);
+        return response()->json(["pageNum" => $pageNum]);
+    }
+
     public function countryByPage($page){
         //auth check
         try{
