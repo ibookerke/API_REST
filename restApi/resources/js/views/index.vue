@@ -1,6 +1,5 @@
 <template>
     <div>
-
         <div class="tableHeading">
             <h4 style="width: 10%;">id</h4>
             <h4 style="width: 40%;">Country Name</h4>
@@ -11,7 +10,7 @@
             <p style="width: 10%;">{{row.id}}</p>
             <p style="width: 40%;">{{row.name}}</p>
             <p style="width: 40%;">{{row.name_en}}</p>
-            <p style="width: 10%">{{row.alias}}</p>
+            <p style="width: 10%">{{row.alias.toUpperCase()}}</p>
         </div>
 
     </div>
@@ -19,14 +18,11 @@
 
 <script>
 
-function renderTable(data) {
-
-}
-
 import axios from "axios"
+let token = localStorage.getItem("jwt")
 const axConfig = {
     headers: {
-
+        Authorization: "Bearer" + token
     }
 }
 export default {
@@ -36,52 +32,13 @@ export default {
             data: null
         }
     },
-    created() {
-
-    },
     mounted() {
-        let token = localStorage.getItem("jwt")
-        let config = {
-            headers: {
-                Authorization: "Bearer" + token
-            }
-        }
-
-        axios.get("http://127.0.0.1:8000/api/country/page/" + 1, config)
+        axios.get("http://127.0.0.1:8000/api/country/page/" + 1, axConfig)
             .then(response => (this.data = response.data))
     }
 }
 </script>
 
 <style scoped>
-
-.tableHeading{
-    height: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #ababab;
-    text-align: center;
-}
-.tableHeading h4{
-    box-sizing: border-box;
-    margin-bottom: 0;
-}
-
-.data-row{
-    align-items: center;
-}
-.data-row:hover{
-    background: #d4d4d4;
-}
-.data-row p{
-    text-align: center;
-    height: 35px;
-    margin-bottom: 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 </style>

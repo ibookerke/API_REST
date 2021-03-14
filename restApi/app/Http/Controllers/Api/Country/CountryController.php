@@ -51,7 +51,7 @@ class CountryController extends Controller{
 //        if(is_null($country)){
 //            return response()->json(['error'=> true, 'message' => 'Not found'], 404);
 //        }
-        return response()->json(countryModel::skip(($page - 1) * 19)->limit(19)->get(), 200);
+        return response()->json(countryModel::skip(($page - 1) * 20)->limit(20)->get(), 200);
     }
 
     public function countryAdd(Request $req) {
