@@ -1932,7 +1932,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 var token = localStorage.getItem("jwt");
 var axConfig = {
@@ -1951,11 +1950,16 @@ var axConfig = {
     searchById: function searchById(event) {
       event.preventDefault();
       var id = document.getElementById("idInput").value;
-      axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://127.0.0.1:8000/api/country/" + id, axConfig).then(function (response) {
-        renderSearch(response.data);
-      })["catch"](function (error) {
-        alert("There is no country with the inserted id");
-      });
+
+      if (id !== "") {
+        axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://127.0.0.1:8000/api/country/" + id, axConfig).then(function (response) {
+          renderSearch(response.data);
+        })["catch"](function (error) {
+          alert("There is no country with the inserted id");
+        });
+      } else {
+        alert("you should enter the id");
+      }
     },
     saveChanges: function saveChanges(event) {
       event.preventDefault();
@@ -1976,6 +1980,21 @@ var axConfig = {
     },
     deleteRecord: function deleteRecord(event) {
       event.preventDefault();
+      var cond = confirm("Are you sure about deleting this record?");
+
+      if (cond) {
+        var id = document.getElementById("searchId").value;
+        axios__WEBPACK_IMPORTED_MODULE_0___default().delete("http://127.0.0.1:8000/api/country/" + id, axConfig).then(function (response) {
+          alert("Record have been successfully deleted");
+          var inputs = document.getElementsByClassName("searchInput");
+
+          for (var i = 0; i < inputs.length; i++) {
+            inputs[i].value = "DELETED";
+          }
+        })["catch"](function (error) {
+          alert("The inserted values have not passed the validation");
+        });
+      }
     }
   },
   mounted: function mounted() {
@@ -38414,7 +38433,7 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("input", {
-          staticClass: "form-control",
+          staticClass: "form-control searchInput",
           attrs: {
             type: "text",
             disabled: "",
@@ -38432,7 +38451,7 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("input", {
-          staticClass: "form-control",
+          staticClass: "form-control searchInput",
           attrs: {
             type: "text",
             disabled: "",
@@ -38450,7 +38469,7 @@ var staticRenderFns = [
         ]),
         _vm._v(" "),
         _c("input", {
-          staticClass: "form-control",
+          staticClass: "form-control searchInput",
           attrs: {
             type: "text",
             disabled: "",
@@ -38464,11 +38483,13 @@ var staticRenderFns = [
       _vm._v(" "),
       _c("div", { staticClass: "input-group mb-3" }, [
         _c("div", { staticClass: "input-group-prepend" }, [
-          _c("span", { staticClass: "input-group-text" }, [_vm._v("alias")])
+          _c("span", { staticClass: "input-group-text searchInput" }, [
+            _vm._v("alias")
+          ])
         ]),
         _vm._v(" "),
         _c("input", {
-          staticClass: "form-control",
+          staticClass: "form-control searchInput",
           attrs: {
             type: "text",
             disabled: "",

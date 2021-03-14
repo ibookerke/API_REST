@@ -7,7 +7,6 @@
             <input type="text" class="form-control" id="idInput" placeholder="id" aria-label="id" aria-describedby="basic-addon1">
             <div class="input-group-append">
                 <button type="button" class="btn btn-outline-info" id="btnSearch" v-on:click="searchById">Search</button>
-<!--                <span style="cursor: pointer;" class="input-group-text"  v-on:click="searchById">Search</span>-->
             </div>
         </div>
         <div id="searchBody">
@@ -15,25 +14,25 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">id</span>
                 </div>
-                <input type="text" class="form-control" disabled placeholder="id" id="searchId" aria-label="id" aria-describedby="basic-addon1">
+                <input type="text" class="form-control searchInput" disabled placeholder="id" id="searchId" aria-label="id" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Name</span>
                 </div>
-                <input type="text" class="form-control" disabled placeholder="Country Name" id="searchName" aria-label="Country Name" aria-describedby="basic-addon1">
+                <input type="text" class="form-control searchInput" disabled placeholder="Country Name" id="searchName" aria-label="Country Name" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Name_en</span>
                 </div>
-                <input type="text" class="form-control" disabled placeholder="Name in English" id="searchEn" aria-label="Name in English" aria-describedby="basic-addon1">
+                <input type="text" class="form-control searchInput" disabled placeholder="Name in English" id="searchEn" aria-label="Name in English" aria-describedby="basic-addon1">
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text">alias</span>
+                    <span class="input-group-text searchInput">alias</span>
                 </div>
-                <input type="text" class="form-control" disabled placeholder="Alias" id="searchAlias" aria-label="alias" aria-describedby="basic-addon1">
+                <input type="text" class="form-control searchInput" disabled placeholder="Alias" id="searchAlias" aria-label="alias" aria-describedby="basic-addon1">
             </div>
         </div>
 
@@ -67,13 +66,18 @@ export default {
 
             let id = document.getElementById("idInput").value;
 
-            axios.get("http://127.0.0.1:8000/api/country/" + id, axConfig)
-                .then(response => {
-                    renderSearch(response.data)
-                })
-                .catch(error => {
-                    alert("There is no country with the inserted id")
-                })
+            if(id !== ""){
+                axios.get("http://127.0.0.1:8000/api/country/" + id, axConfig)
+                    .then(response => {
+                        renderSearch(response.data)
+                    })
+                    .catch(error => {
+                        alert("There is no country with the inserted id")
+                    })
+            }
+            else{
+                alert("you should enter the id")
+            }
         },
         saveChanges : function (event){
             event.preventDefault()
@@ -98,6 +102,23 @@ export default {
         },
         deleteRecord : function (event){
             event.preventDefault()
+
+            let cond = confirm("Are you sure about deleting this record?")
+            if(cond) {
+                let id =  document.getElementById("searchId").value
+
+                axios.delete("http://127.0.0.1:8000/api/country/" + id, axConfig)
+                    .then(response => {
+                        alert("Record have been successfully deleted")
+                        let inputs = document.getElementsByClassName("searchInput")
+                        for(let i = 0; i < inputs.length; i++){
+                            inputs[i].value = "DELETED"
+                        }
+                    })
+                    .catch(error => {
+                        alert("The inserted values have not passed the validation")
+                    })
+            }
         }
 
     },
