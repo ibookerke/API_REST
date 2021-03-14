@@ -30,14 +30,14 @@
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text searchInput">alias</span>
+                    <span class="input-group-text searchInput">Alias</span>
                 </div>
                 <input type="text" class="form-control searchInput" disabled placeholder="Alias" id="searchAlias" aria-label="alias" aria-describedby="basic-addon1">
             </div>
         </div>
 
-        <div>
-            <button type="button" class="btn btn-success" v-on:click="saveChanges">Save Changes</button>
+        <div class="d-flex justify-content-lg-end">
+            <button style="margin-right: 10px;" type="button" class="btn btn-success" v-on:click="saveChanges">Save Changes</button>
             <button type="button" class="btn btn-danger" v-on:click="deleteRecord">Delete Record</button>
         </div>
 
