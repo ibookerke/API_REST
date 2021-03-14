@@ -1861,10 +1861,10 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       links: [{
-        title: "Main",
+        title: "Countries",
         href: "/"
       }, {
-        title: "Search by id",
+        title: "Search",
         href: "/edit"
       }]
     };
@@ -1904,6 +1904,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var token = localStorage.getItem("jwt");
 var axConfig = {
@@ -1920,12 +1949,33 @@ var axConfig = {
   },
   methods: {
     searchById: function searchById(event) {
+      event.preventDefault();
       var id = document.getElementById("idInput").value;
       axios__WEBPACK_IMPORTED_MODULE_0___default().get("http://127.0.0.1:8000/api/country/" + id, axConfig).then(function (response) {
         renderSearch(response.data);
       })["catch"](function (error) {
         alert("There is no country with the inserted id");
       });
+    },
+    saveChanges: function saveChanges(event) {
+      event.preventDefault();
+      var id = document.getElementById("searchId").value;
+      var name = document.getElementById("searchName").value;
+      var name_en = document.getElementById("searchEn").value;
+      var alias = document.getElementById("searchAlias").value;
+      var request = {
+        "alias": alias,
+        "name_en": name_en,
+        "name": name
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default().put("http://127.0.0.1:8000/api/country/" + id, request, axConfig).then(function (response) {
+        alert("Data have been successfully changed");
+      })["catch"](function (error) {
+        alert("The inserted values have not passed the validation");
+      });
+    },
+    deleteRecord: function deleteRecord(event) {
+      event.preventDefault();
     }
   },
   mounted: function mounted() {
@@ -1936,19 +1986,24 @@ var axConfig = {
         // Cancel the default action, if needed
         event.preventDefault(); // Trigger the button element with a click
 
-        document.getElementById("basic-addon2").click();
+        document.getElementById("btnSearch").click();
       }
     });
   }
 });
 
 function renderSearch(data) {
-  var html = "<div class=\"input-group mb-3\">\n" + "  <div class=\"input-group-prepend\">\n" + "    <span class=\"input-group-text\" id=\"inputGroup-sizing-default\">id</span>\n" + "  </div>\n" + "  <input type=\"text\" value='" + data.id + "' class=\"form-control\" aria-label=\"Default\" aria-describedby=\"inputGroup-sizing-default\">\n" + "</div>";
-  html += "<div class=\"input-group mb-3\">\n" + "  <div class=\"input-group-prepend\">\n" + "    <span class=\"input-group-text\" id=\"inputGroup-sizing-default\">Name</span>\n" + "  </div>\n" + "  <input type=\"text\" value='" + data.name + "' class=\"form-control\" aria-label=\"Default\" aria-describedby=\"inputGroup-sizing-default\">\n" + "</div>";
-  html += "<div class=\"input-group mb-3\">\n" + "  <div class=\"input-group-prepend\">\n" + "    <span class=\"input-group-text\" id=\"inputGroup-sizing-default\">Name_en</span>\n" + "  </div>\n" + "  <input type=\"text\" value='" + data.name_en + "' class=\"form-control\" aria-label=\"Default\" aria-describedby=\"inputGroup-sizing-default\">\n" + "</div>";
-  html += "<div class=\"input-group mb-3\">\n" + "  <div class=\"input-group-prepend\">\n" + "    <span class=\"input-group-text\" id=\"inputGroup-sizing-default\">Alias</span>\n" + "  </div>\n" + "  <input type=\"text\" value='" + data.alias.toUpperCase() + "' class=\"form-control\" aria-label=\"Default\" aria-describedby=\"inputGroup-sizing-default\">\n" + "</div>";
-  var body = document.getElementById("searchBody");
-  body.innerHTML = html;
+  var id = document.getElementById("searchId");
+  var name = document.getElementById("searchName");
+  var name_en = document.getElementById("searchEn");
+  var alias = document.getElementById("searchAlias");
+  id.value = data.id;
+  name.value = data.name;
+  name.disabled = false;
+  name_en.value = data.name_en;
+  name_en.disabled = false;
+  alias.value = data.alias.toUpperCase();
+  alias.disabled = false;
 }
 
 /***/ }),
@@ -6611,7 +6666,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nlabel[data-v-46b6d489]{\n    font-size: 30px;\n    font-weight: 900;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\ninput[data-v-46b6d489]:focus{\n    box-shadow: none;\n}\nlabel[data-v-46b6d489]{\n    font-size: 30px;\n    font-weight: 900;\n}\nbutton[data-v-46b6d489]:focus{\n    box-shadow: none;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -38299,11 +38354,10 @@ var render = function() {
       _vm._v(" "),
       _c("div", { staticClass: "input-group-append" }, [
         _c(
-          "span",
+          "button",
           {
-            staticClass: "input-group-text",
-            staticStyle: { cursor: "pointer" },
-            attrs: { id: "basic-addon2" },
+            staticClass: "btn btn-outline-info",
+            attrs: { type: "button", id: "btnSearch" },
             on: { click: _vm.searchById }
           },
           [_vm._v("Search")]
@@ -38311,7 +38365,29 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("div", { attrs: { id: "searchBody" } })
+    _vm._m(1),
+    _vm._v(" "),
+    _c("div", [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-success",
+          attrs: { type: "button" },
+          on: { click: _vm.saveChanges }
+        },
+        [_vm._v("Save Changes")]
+      ),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-danger",
+          attrs: { type: "button" },
+          on: { click: _vm.deleteRecord }
+        },
+        [_vm._v("Delete Record")]
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -38325,6 +38401,84 @@ var staticRenderFns = [
         { staticClass: "input-group-text", attrs: { id: "basic-addon1" } },
         [_vm._v("Country Id")]
       )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { attrs: { id: "searchBody" } }, [
+      _c("div", { staticClass: "input-group mb-3" }, [
+        _c("div", { staticClass: "input-group-prepend" }, [
+          _c("span", { staticClass: "input-group-text" }, [_vm._v("id")])
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            disabled: "",
+            placeholder: "id",
+            id: "searchId",
+            "aria-label": "id",
+            "aria-describedby": "basic-addon1"
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "input-group mb-3" }, [
+        _c("div", { staticClass: "input-group-prepend" }, [
+          _c("span", { staticClass: "input-group-text" }, [_vm._v("Name")])
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            disabled: "",
+            placeholder: "Country Name",
+            id: "searchName",
+            "aria-label": "Country Name",
+            "aria-describedby": "basic-addon1"
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "input-group mb-3" }, [
+        _c("div", { staticClass: "input-group-prepend" }, [
+          _c("span", { staticClass: "input-group-text" }, [_vm._v("Name_en")])
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            disabled: "",
+            placeholder: "Name in English",
+            id: "searchEn",
+            "aria-label": "Name in English",
+            "aria-describedby": "basic-addon1"
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "input-group mb-3" }, [
+        _c("div", { staticClass: "input-group-prepend" }, [
+          _c("span", { staticClass: "input-group-text" }, [_vm._v("alias")])
+        ]),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "form-control",
+          attrs: {
+            type: "text",
+            disabled: "",
+            placeholder: "Alias",
+            id: "searchAlias",
+            "aria-label": "alias",
+            "aria-describedby": "basic-addon1"
+          }
+        })
+      ])
     ])
   }
 ]

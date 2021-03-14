@@ -19,11 +19,11 @@ export default {
         return {
             links: [
                 {
-                    title: "Main",
+                    title: "Countries",
                     href: "/"
                 },
                 {
-                    title: "Search by id",
+                    title: "Search",
                     href: "/edit"
                 }
             ]
