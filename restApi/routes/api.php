@@ -24,6 +24,7 @@ Route::post('login', [\App\Http\Controllers\Api\Auth\LoginController::class, 'lo
 Route::group(['middleware' => ['jwt.verify']], function () {
     Route::get('country', [\App\Http\Controllers\Api\Country\CountryController::class, 'country']);
     Route::get('country/{id}', [\App\Http\Controllers\Api\Country\CountryController::class, 'countryById']);
+    Route::get('country/page/{page}', [\App\Http\Controllers\Api\Country\CountryController::class, 'countryByPage']);
     Route::post('country', [\App\Http\Controllers\Api\Country\CountryController::class, 'countryAdd']);
     Route::put('country/{id}', [\App\Http\Controllers\Api\Country\CountryController::class, 'countryEdit']);
     Route::delete('country/{id}', [\App\Http\Controllers\Api\Country\CountryController::class, 'countryDelete']);
