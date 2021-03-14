@@ -53,10 +53,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <h1 id="loginButton">
-                                    lala
-                                </h1>
-                                <button type="submit" class="btn btn-primary" >
+                                <button type="submit" class="btn btn-primary" id="loginButton" >
                                     {{ __('Login') }}
                                 </button>
 

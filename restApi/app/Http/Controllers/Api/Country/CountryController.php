@@ -38,6 +38,22 @@ class CountryController extends Controller{
         return response()->json( $country, 200);
     }
 
+    public function countryByPage($page){
+        //auth check
+        try{
+            $user = auth()->userOrFail();
+        }catch (\Tymon\JWTAuth\Exceptions\UserNotDefinedException $e) {
+            return response()->json(['error' => true, 'message' => $e->getMessage()], 401);
+        }
+
+        //check if id exists
+//        $country = CountryModel::find($id);
+//        if(is_null($country)){
+//            return response()->json(['error'=> true, 'message' => 'Not found'], 404);
+//        }
+        return response()->json(countryModel::skip(($page - 1) * 19)->limit(19)->get(), 200);
+    }
+
     public function countryAdd(Request $req) {
         //auth check
         try{

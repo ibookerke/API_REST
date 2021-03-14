@@ -93,7 +93,7 @@
                     "email" : email,
                     "password": pwd
                 }
-                console.log(request)
+                localStorage.clear()
                 $.ajax({
                     method: 'post',
                     async: false,
@@ -102,8 +102,8 @@
                         data: request
                     },
                     success: function (data) {
-                        console.log("ajaxresult")
-                        console.log(data)
+                        console.log("success")
+                        localStorage.setItem("jwt", data.token)
                     },
                     error: function (response) {
                         console.log(response);
