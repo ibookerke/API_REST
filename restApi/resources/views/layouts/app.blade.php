@@ -7,10 +7,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Home</title>
 
     <!-- Scripts -->
+
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery-1.11.1.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,13 +21,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    UserInterface
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -45,7 +49,7 @@
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-                            
+
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
@@ -75,9 +79,39 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4" id="baba">
             @yield('content')
         </main>
     </div>
+    <script>
+
+        $(document).ready(function() {
+            $("#loginButton").click( function() {
+                let email = document.getElementById("email").value
+                let pwd = document.getElementById("password").value
+                let request = {
+                    "email" : email,
+                    "password": pwd
+                }
+                localStorage.clear()
+                $.ajax({
+                    method: 'post',
+                    async: false,
+                    url: "http://127.0.0.1:8000/api/login",
+                    data: {
+                        data: request
+                    },
+                    success: function (data) {
+                        console.log("success")
+                        localStorage.setItem("jwt", data.token)
+                    },
+                    error: function (response) {
+                        console.log(response);
+                    }
+                })
+            })
+        })
+
+    </script>
 </body>
 </html>

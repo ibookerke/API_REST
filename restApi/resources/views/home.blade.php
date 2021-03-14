@@ -11,10 +11,13 @@
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
+
                         </div>
                     @endif
+                    {{ __('You are logged in!') }} <br>
+                    You may return to
+                    <a href="{{ url('/') }}" class="text-sm text-gray-700 underline">UserInterface</a>
 
-                    {{ __('You are logged in!') }}
                 </div>
             </div>
         </div>

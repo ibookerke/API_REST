@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="104c8a99-222c-4bad-bd11-921e539f04fe" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/restApi/resources/js/components/content.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restApi/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/restApi/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restApi/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/restApi/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restApi/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/restApi/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restApi/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/restApi/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restApi/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/restApi/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restApi/resources/js/components/ExampleComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/restApi/resources/js/components/ExampleComponent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restApi/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/restApi/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restApi/resources/views/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/restApi/resources/views/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restApi/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/restApi/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restApi/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/restApi/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restApi/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/restApi/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/restApi/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/restApi/webpack.mix.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Vue Single File Component" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1pVjfZpStDL10qUEiLt5FagGhJY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\OpenServer\domains\restfulAPI\restApi\app\Http\Controllers\Api\Country" />
+      <recent name="C:\OpenServer\domains\restfulAPI\restApi\app\Http\Controllers\Api" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="104c8a99-222c-4bad-bd11-921e539f04fe" name="Default Changelist" comment="" />
+      <created>1615275263993</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1615275263993</updated>
+      <workItem from="1615275269870" duration="25361000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1637" y="230" key="NewPhpClassDialog" timestamp="1615287664755">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1637" y="230" key="NewPhpClassDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1615287664755" />
+    <state x="1754" y="442" key="NewPhpFileDialog" timestamp="1615352317929">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1754" y="442" key="NewPhpFileDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1615352317929" />
+    <state x="1719" y="142" key="RollbackChangesDialog" timestamp="1615356405161">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1719" y="142" key="RollbackChangesDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1615356405161" />
+    <state x="1667" y="312" key="com.jetbrains.php.test.PhpNewTestDialog" timestamp="1615280477835">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1667" y="312" key="com.jetbrains.php.test.PhpNewTestDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1615280477835" />
+    <state x="1628" y="237" width="608" height="566" key="find.popup" timestamp="1615352678115">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1628" y="237" width="608" height="566" key="find.popup/0.0.2560.1040@0.0.2560.1040" timestamp="1615352678115" />
+    <state x="1576" y="244" key="run.anything.popup" timestamp="1615287092910">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1576" y="244" key="run.anything.popup/0.0.2560.1040@0.0.2560.1040" timestamp="1615287092910" />
+    <state x="1583" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1615354778727">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1583" y="229" width="672" height="678" key="search.everywhere.popup/0.0.2560.1040@0.0.2560.1040" timestamp="1615354778727" />
+  </component>
+</project>
